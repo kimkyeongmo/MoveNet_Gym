@@ -36,6 +36,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -57,7 +58,8 @@ dependencies {
     implementation ("androidx.camera:camera-lifecycle:1.5.1")
     implementation ("androidx.camera:camera-view:1.5.1")
     implementation ("androidx.camera:camera-extensions:1.5.1")
-
+    implementation("com.facebook.react:react-android:0.72.7")
+    implementation("com.facebook.react:hermes-android:0.72.7")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

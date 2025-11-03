@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.support.serviceOf
 pluginManagement {
     repositories {
         google {
@@ -21,4 +22,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "MoveNet_Gym"
 include(":app")
+includeBuild("./node_modules/@react-native/gradle-plugin")
+rootProject.name = "MoveNet_Gym"
+
+
  

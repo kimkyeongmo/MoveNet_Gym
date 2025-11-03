@@ -1,0 +1,24 @@
+{
+  "name": "MoveNet_Gym",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "^0.72.7"
+  },
+  "devDependencies": {
+    "@react-native-community/cli": "^20.0.2",
+    "@react-native-community/cli-platform-android": "latest",
+    "@react-native-community/cli-platform-ios": "latest",
+    "@react-native-community/cli-server-api": "^20.0.2",
+    "@react-native/gradle-plugin": "^0.82.1",
+    "@react-native/metro-config": "^0.82.1",
+    "metro-config": "^0.83.3",
+    "typescript": "^5.3.3"
+  }
+}
