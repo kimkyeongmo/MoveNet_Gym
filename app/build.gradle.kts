@@ -1,3 +1,13 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(FileInputStream(localPropertiesFile))
+}
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -14,7 +24,11 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
+        buildConfigField(
+            "String",
+            "OPENAI_API_KEY",
+            "\"${localProperties.getProperty("OPENAI_API_KEY")}\""
+        )
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -60,6 +74,8 @@ dependencies {
     implementation ("androidx.camera:camera-extensions:1.5.1")
     implementation("com.facebook.react:react-android:0.72.7")
     implementation("com.facebook.react:hermes-android:0.72.7")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

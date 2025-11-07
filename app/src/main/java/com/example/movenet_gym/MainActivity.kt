@@ -1,6 +1,7 @@
 package com.example.movenet_gym
 
 import android.Manifest
+import androidx.compose.foundation.border
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -326,39 +327,21 @@ fun SkeletonOverlay(keypoints: List<FloatArray>) {
 //  사람 윤곽 가이드
 @Composable
 fun HumanSilhouetteGuide() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            val w = size.width
-            val h = size.height
-            val cx = w / 2
-            val topY = h * 0.15f
-            val bottomY = h * 0.9f
+    Box(
+        modifier = Modifier
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
 
-            val path = androidx.compose.ui.graphics.Path().apply {
-                moveTo(cx, topY)
-                cubicTo(cx - w * 0.05f, topY + h * 0.05f, cx - w * 0.1f, topY + h * 0.15f, cx - w * 0.12f, topY + h * 0.25f)
-                cubicTo(cx - w * 0.14f, topY + h * 0.35f, cx - w * 0.18f, topY + h * 0.45f, cx - w * 0.15f, topY + h * 0.55f)
-                cubicTo(cx - w * 0.12f, topY + h * 0.65f, cx - w * 0.1f, bottomY - h * 0.05f, cx - w * 0.07f, bottomY)
-                lineTo(cx + w * 0.07f, bottomY)
-                cubicTo(cx + w * 0.1f, bottomY - h * 0.05f, cx + w * 0.12f, topY + h * 0.65f, cx + w * 0.15f, topY + h * 0.55f)
-                cubicTo(cx + w * 0.18f, topY + h * 0.45f, cx + w * 0.14f, topY + h * 0.35f, cx + w * 0.12f, topY + h * 0.25f)
-                cubicTo(cx + w * 0.1f, topY + h * 0.15f, cx + w * 0.05f, topY + h * 0.05f, cx, topY)
-                close()
-            }
-
-            drawPath(path, Color.White, style = Stroke(width = 6f))
-        }
-//        Text(
-//            text = "이 윤곽선 안에 전신이 다 보이게 서주세요",
-//            color = Color.White,
-//            style = MaterialTheme.typography.bodyLarge,
-//            textAlign = TextAlign.Center,
-//            modifier = Modifier
-//                .align(Alignment.BottomCenter)
-//                .padding(bottom = 30.dp)
-//        )
+        Box(
+            modifier = Modifier
+                .width(400.dp)
+                .height(650.dp)
+                .border(width = 4.dp, color = Color.White) // 테두리만 흰
+        )
     }
 }
+
 
 //  ImageProxy → Bitmap 변환
 fun ImageProxy.toBitmap(): Bitmap? {

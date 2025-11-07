@@ -37,7 +37,9 @@ export default function HomeScreen({ navigate }: any) {
         <Text style={styles.cardTitle}>AI 플래너</Text>
         <Text style={styles.cardDesc}>운동 루틴과 식단 플랜을 생성하세요.</Text>
 
-        <TouchableOpacity style={styles.secondaryButton}>
+        <TouchableOpacity style={styles.secondaryButton}
+        onPress={() => navigate("plan")}
+        >
           <Text style={styles.secondaryButtonText}>루틴 생성하기</Text>
         </TouchableOpacity>
       </View>

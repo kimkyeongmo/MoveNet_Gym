@@ -6,6 +6,7 @@ import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.shell.MainReactPackage
 import com.example.movenet_gym.BuildConfig
+import com.example.movenet_gym.OpenAIPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -15,7 +16,8 @@ class MainApplication : Application(), ReactApplication {
         override fun getPackages(): List<ReactPackage> {
             return listOf(
                 MainReactPackage(),
-                MoveNetPackage()
+                MoveNetPackage(),
+                OpenAIPackage()
             )
         }
 
